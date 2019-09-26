@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: <BlogPostTemplateWithData /> Correctly prepares data from GraphQL for Blog* components. 1`] = `
+<DocumentFragment>
+  <article
+    class="ui container blog-post"
+  >
+    <div
+      class=" gatsby-image-wrapper"
+      style="position: relative; overflow: hidden;"
+    >
+      <div
+        style="width: 100%; padding-bottom: 56.25%;"
+      />
+      <img
+        alt=""
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABrklEQVQoz52RvW4TQRSF9xlBQlQICqCi4g1okChQOoQoKHgBGkpSBIlIkaLgOItSRMZiFdu73v/dmVlbjr/cmVnHq3RQfLpnZvacuXM30FcTzOkvzHlI9+OY7vDI158nqLKi1RrVtiilHO097dmvA2vYoboOZQztDmu+M3njUGvxWHyg7ElosDMoOSjynLIsnd511fbdePbdadFpmrIUrHahtkMXKN2YRYx+e4B5/wEtoY3sN02DElrB6kZMtV3LWVEp3n1refO1ZZ5pjPahgTOs15jfl/DwGTx+gYmuSbOMJJZLqopUarJMKWvFXC4u8oxoaXj0CR58hDAyrLvWXSiBkrxaoSdTtk9fcfPyNSYvSCRwMZ+jpfuZ1NlsRic6jhPKIiOvDM+/3PDk85bJQrMyfaAfdD8ruV0lSzcj+8S6rp22teq1e3rjZxnnioU81/9h1T/ZDbqnMx7R2g5e+x9h6512P8TrTubWmYFfCKpas0f1+HU5qOXgu/Le2TAjCKMt/8NhCMcjxdHFhu+jDeeXivAagvFf+FcuIjibwunVhtF0y9mfLePphrHs3wJGBzn7XXcIlQAAAABJRU5ErkJggg=="
+        style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 1; transition-delay: 500ms;"
+      />
+      <picture>
+        <source
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          srcset="/static/1e96bf19ddb341300e3a0fbb3db66c92/a79b5/diagram-etl-pipeline.png 320w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/cff51/diagram-etl-pipeline.png 640w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/91f24/diagram-etl-pipeline.png 1280w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/ec873/diagram-etl-pipeline.png 1920w"
+        />
+        <img
+          alt=""
+          loading="lazy"
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          src="/static/1e96bf19ddb341300e3a0fbb3db66c92/91f24/diagram-etl-pipeline.png"
+          srcset="/static/1e96bf19ddb341300e3a0fbb3db66c92/a79b5/diagram-etl-pipeline.png 320w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/cff51/diagram-etl-pipeline.png 640w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/91f24/diagram-etl-pipeline.png 1280w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/ec873/diagram-etl-pipeline.png 1920w"
+          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 500ms;"
+        />
+      </picture>
+      <noscript>
+        &lt;picture&gt;&lt;source srcset="/static/1e96bf19ddb341300e3a0fbb3db66c92/a79b5/diagram-etl-pipeline.png 320w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/cff51/diagram-etl-pipeline.png 640w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/91f24/diagram-etl-pipeline.png 1280w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/ec873/diagram-etl-pipeline.png 1920w" sizes="(max-width: 1280px) 100vw, 1280px" /&gt;&lt;img loading="lazy" sizes="(max-width: 1280px) 100vw, 1280px" srcset="/static/1e96bf19ddb341300e3a0fbb3db66c92/a79b5/diagram-etl-pipeline.png 320w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/cff51/diagram-etl-pipeline.png 640w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/91f24/diagram-etl-pipeline.png 1280w,
+/static/1e96bf19ddb341300e3a0fbb3db66c92/ec873/diagram-etl-pipeline.png 1920w" src="/static/1e96bf19ddb341300e3a0fbb3db66c92/91f24/diagram-etl-pipeline.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+      </noscript>
+    </div>
+    <h2
+      class="ui header"
+    >
+      Current blog post title
+    </h2>
+    <div
+      class="meta"
+    >
+      By Current blog author on Sep. 9th, 2019
+    </div>
+    <div>
+      <p>
+        Blog post body
+      </p>
+      
+
+    </div>
+  </article>
+  <div
+    class="ui items blog-navigation"
+  >
+    Previous post:
+    <div
+      class="item blog--teaser"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="header"
+        >
+          <a
+            href="/blog/tue-09242019-1631/eros"
+          >
+            Previous post title
+          </a>
+        </div>
+        <div
+          class="description"
+        >
+          <div>
+            <p>
+              Previous post summary.
+            </p>
+            
+
+          </div>
+        </div>
+        <div
+          class="extra"
+        >
+          <div
+            class="meta"
+          >
+            By Previous post author on Sep. 8th, 2019
+          </div>
+          <div
+            class="read-more"
+          >
+            <a
+              href="/blog/tue-09242019-1631/eros"
+            >
+              read more →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    Next post:
+    <div
+      class="item blog--teaser"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="header"
+        >
+          <a
+            href="/blog/tue-09242019-1631/abluo-diam-dolore-metuo-quia-quibus"
+          >
+            Next post title
+          </a>
+        </div>
+        <div
+          class="description"
+        >
+          <div>
+            <p>
+              Next post summary
+            </p>
+            
+
+          </div>
+        </div>
+        <div
+          class="extra"
+        >
+          <div
+            class="meta"
+          >
+            By Next post author on Sep. 10th, 2019
+          </div>
+          <div
+            class="read-more"
+          >
+            <a
+              href="/blog/tue-09242019-1631/abluo-diam-dolore-metuo-quia-quibus"
+            >
+              read more →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
