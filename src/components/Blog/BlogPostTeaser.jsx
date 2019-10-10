@@ -4,14 +4,12 @@ import { Link, navigate } from 'gatsby';
 
 import { Item } from 'semantic-ui-react';
 
-const onClick = (e) => {
-  e.preventDefault();
-  navigate(props.path);
-  return false;
-};
-
 const BlogPostTeaser = props => (
-  <Item className="blog--teaser" onClick={onClick}>
+  <Item className="blog--teaser" onClick={(e) => {
+    e.preventDefault();
+    navigate(props.path);
+    return false;
+  }}>
     <Item.Content>
       <Item.Header>
         <Link to={props.path}>{props.title}</Link>
