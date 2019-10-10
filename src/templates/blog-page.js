@@ -10,6 +10,10 @@ import BlogPostTemplate from '../components/Blog/BlogPostTemplate';
  * looks you can shadow the template component.
  */
 const BlogPostTemplateWithData = (props) => {
+  if (props.data.post.relationships.image == null) {
+    props.data.post.relationships.image = [];
+  }
+
   const post = {
     title: props.data.post.title,
     author: props.data.post.relationships.uid.name,

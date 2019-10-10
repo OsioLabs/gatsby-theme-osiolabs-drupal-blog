@@ -5,7 +5,7 @@ import BlogPostTeaser from './BlogPostTeaser';
 
 const BlogListTemplate = props => {
   const posts = props.data.allNodeBlogPost.edges;
-  const { currentPage, numPages } = props.pageContext;
+  const { currentPage, numPages, limit } = props.pageContext;
 
   return (
     <>
@@ -17,30 +17,32 @@ const BlogListTemplate = props => {
             author={node.relationships.uid.name}
             path={node.path.alias}
             created={node.created}
-            timeToComplete={600}
+            timeToComplete={null}
           />
         ))}
       </Item.Group>
 
-      <Pagination
-        boundaryRange={0}
-        defaultActivePage={currentPage}
-        firstItem={null}
-        lastItem={null}
-        prevItem="&larr; Previous"
-        nextItem="Next &rarr;"
-        siblingRange={1}
-        secondary
-        totalPages={numPages}
-        onPageChange={(event, data) => {
-          if (data.activePage === 1) {
-            navigate('/blog');
-          }
-          else {
-            navigate(`/blog/p/${data.activePage}`);
-          }
-        }}
-      />
+      {numPages > limit && (
+        <Pagination
+          boundaryRange={0}
+          defaultActivePage={currentPage}
+          firstItem={null}
+          lastItem={null}
+          prevItem="&larr; Previous"
+          nextItem="Next &rarr;"
+          siblingRange={1}
+          secondary
+          totalPages={numPages}
+          onPageChange={(event, data) => {
+            if (data.activePage === 1) {
+              navigate('/blog');
+            }
+            else {
+              navigate(`/blog/p/${data.activePage}`);
+            }
+          }}
+        />
+      )}
     </>
   );
 };
