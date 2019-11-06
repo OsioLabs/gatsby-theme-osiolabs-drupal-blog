@@ -15,9 +15,7 @@
     "semantic-ui-react": "^0.88.1"
   },
   "dependencies": {
-    "gatsby-theme-osiolabs-drupal": "git+https://github.com/OsioLabs/gatsby-theme-osiolabs-drupal.git#1.0.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "gatsby-theme-osiolabs-drupal": "git+https://github.com/OsioLabs/gatsby-theme-osiolabs-drupal.git"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
@@ -37,6 +35,8 @@
     "gatsby": "^2.13.62",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
