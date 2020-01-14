@@ -16,7 +16,7 @@ const BlogPostTemplateWithData = (props) => {
 
   const post = {
     title: props.data.post.title,
-    author: props.data.post.relationships.uid.name,
+    author: props.data.post.relationships.uid.display_name,
     path: props.data.post.path.alias,
     summary: props.data.post.summary.processed,
     body: props.data.post.body.processed,
@@ -29,7 +29,7 @@ const BlogPostTemplateWithData = (props) => {
   if (props.data.previousPost) {
     previousPost = {
       title: props.data.previousPost.title,
-      author: props.data.previousPost.relationships.uid.name,
+      author: props.data.previousPost.relationships.uid.display_name,
       path: props.data.previousPost.path.alias,
       summary: props.data.previousPost.summary.processed,
       created: props.data.previousPost.created,
@@ -41,7 +41,7 @@ const BlogPostTemplateWithData = (props) => {
   if (props.data.nextPost) {
     nextPost = {
       title: props.data.nextPost.title,
-      author: props.data.nextPost.relationships.uid.name,
+      author: props.data.nextPost.relationships.uid.display_name,
       path: props.data.nextPost.path.alias,
       summary: props.data.nextPost.summary.processed,
       created: props.data.nextPost.created,
@@ -74,7 +74,7 @@ export const query = graphql`
     }
     relationships {
       uid {
-        name
+        display_name
       }
     }
   }
