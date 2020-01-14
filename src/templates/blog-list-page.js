@@ -22,7 +22,7 @@ export const query = graphql`
           }
           relationships {
             uid {
-              name
+              display_name
             }
           }
           created(formatString: "MMM. Mo, YYYY")

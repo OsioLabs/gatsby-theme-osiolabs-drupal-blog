@@ -20,7 +20,7 @@ const exampleData = {
     },
     relationships: {
       uid: {
-        name: "Current blog author"
+        display_name: "Current blog author"
       },
       image: [
         {
@@ -73,7 +73,7 @@ const exampleData = {
     },
     relationships: {
       uid: {
-        name: "Next post author"
+        display_name: "Next post author"
       }
     }
   },
@@ -90,7 +90,7 @@ const exampleData = {
     },
     relationships: {
       uid: {
-        name: "Previous post author"
+        display_name: "Previous post author"
       }
     }
   }

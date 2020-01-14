@@ -14,7 +14,7 @@ const BlogListTemplate = props => {
           <BlogPostTeaser
             title={node.title}
             summary={node.summary.processed}
-            author={node.relationships.uid.name}
+            author={node.relationships.uid.display_name}
             path={node.path.alias}
             created={node.created}
             timeToComplete={null}
