@@ -65,7 +65,7 @@ export const query = graphql`
     drupal_id
     drupal_internal__nid
     title
-    created(formatString: "MMM. Mo, YYYY")
+    created(formatString: "MMM. Do, YYYY")
     path {
       alias
     }

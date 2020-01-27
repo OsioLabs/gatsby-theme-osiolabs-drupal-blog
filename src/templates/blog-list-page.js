@@ -25,7 +25,7 @@ export const query = graphql`
               display_name
             }
           }
-          created(formatString: "MMM. Mo, YYYY")
+          created(formatString: "MMM. Do, YYYY")
         }
       }
     }
