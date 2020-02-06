@@ -22,9 +22,12 @@ const BlogPostTemplateWithData = props => {
   // Note: This doesn't work with Drupal out of the box and requires some code
   // on the Drupal side to add the `data-media-source-value` attribute used
   // here.
-  const regexp = /data-media-source-value="(\d+)"/gm;
-  const matches = [...props.data.post.body.processed.matchAll(regexp)];
-  const imageIds = matches.map(match => parseInt(match[1]));
+  const re = /data-media-source-value="(\d+)"/gm;
+  let imageIds = [];
+  let match;
+  while ((match = re.exec(props.data.post.body.processed)) != null) {
+    imageIds.push(parseInt(match[1]));
+  }
 
   let bodyImages = null;
   if (imageIds.length && props.data.allImages.edges.length) {
