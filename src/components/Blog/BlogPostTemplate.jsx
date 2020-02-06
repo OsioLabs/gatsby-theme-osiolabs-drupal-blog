@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import { Container, Header, Item } from "semantic-ui-react";
+import PropTypes from 'prop-types';
+import { Container, Header, Item } from 'semantic-ui-react';
 import Img from 'gatsby-image';
-import BlogPostTeaser from "./BlogPostTeaser";
+import BlogPostTeaser from './BlogPostTeaser';
 
 const BlogPostTemplate = props => {
   const {
@@ -10,6 +10,7 @@ const BlogPostTemplate = props => {
     created,
     author,
     body,
+    bodyImages,
     images,
     timeToComplete,
     previousPost,
@@ -21,15 +22,15 @@ const BlogPostTemplate = props => {
       <Container as="article" className="blog-post">
         {images[0] && (
           <Img
-            fluid={images[0].relationships.imageFile.localFile.childImageSharp.fluid}
+            fluid={
+              images[0].relationships.imageFile.localFile.childImageSharp.fluid
+            }
           />
         )}
         <Header as="h2">{title}</Header>
         <div className="meta">
           By {author} on {created}
-          {timeToComplete && (
-            <> // {timeToComplete} min to read</>
-          )}
+          {timeToComplete && <> // {timeToComplete} min to read</>}
         </div>
         <div dangerouslySetInnerHTML={{ __html: body }} />
       </Container>

@@ -9,9 +9,37 @@ import BlogPostTemplate from '../components/Blog/BlogPostTemplate';
  * to override this component and if you want to change the way a blog post
  * looks you can shadow the template component.
  */
-const BlogPostTemplateWithData = (props) => {
+const BlogPostTemplateWithData = props => {
   if (props.data.post.relationships.image == null) {
     props.data.post.relationships.image = [];
+  }
+
+  // Look for any images in the body of the blog post that were added using
+  // Drupal entity embeds. They'll look something like this:
+  // <article data-media-source-value="42">...</article>
+  // Where the ID is the Drupal ID of the image file entity.
+  //
+  // Note: This doesn't work with Drupal out of the box and requires some code
+  // on the Drupal side to add the `data-media-source-value` attribute used
+  // here.
+  const regexp = /data-media-source-value="(\d+)"/gm;
+  const matches = [...props.data.post.body.processed.matchAll(regexp)];
+  const imageIds = matches.map(match => parseInt(match[1]));
+
+  let bodyImages = null;
+  if (imageIds.length && props.data.allImages.edges.length) {
+    bodyImages = props.data.allImages.edges
+      .filter(item => {
+        if (
+          imageIds.includes(
+            item.node.relationships.imageFile.drupal_internal__fid
+          )
+        ) {
+          return item.node.relationships.imageFile.drupal_internal__fid;
+        }
+        return false;
+      })
+      .map(item => item.node.relationships.imageFile);
   }
 
   const post = {
@@ -20,6 +48,7 @@ const BlogPostTemplateWithData = (props) => {
     path: props.data.post.path.alias,
     summary: props.data.post.summary.processed,
     body: props.data.post.body.processed,
+    bodyImages: bodyImages,
     created: props.data.post.created,
     images: props.data.post.relationships.image,
     timeToComplete: null,
@@ -51,8 +80,8 @@ const BlogPostTemplateWithData = (props) => {
 
   return (
     <BlogPostTemplate
-      previousPost={(previousPost ? previousPost : false)}
-      nextPost={(nextPost ? nextPost :false)}
+      previousPost={previousPost ? previousPost : false}
+      nextPost={nextPost ? nextPost : false}
       {...post}
     />
   );
@@ -105,6 +134,24 @@ export const query = graphql`
     }
     previousPost: nodeBlogPost(drupal_id: { eq: $previous_id }) {
       ...drupalFields
+    }
+    allImages: allImages {
+      edges {
+        node {
+          relationships {
+            imageFile {
+              drupal_internal__fid
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1280) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;
