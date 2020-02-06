@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
-    "gatsby-theme-osiolabs-drupal": "git+https://github.com/OsioLabs/gatsby-theme-osiolabs-drupal.git"
+    "gatsby-theme-osiolabs-drupal": "git+https://github.com/OsioLabs/gatsby-theme-osiolabs-drupal.git",
+    "react-html-parser": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
