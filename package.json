@@ -15,7 +15,6 @@
     "semantic-ui-react": "^0.88.1"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
     "gatsby-theme-osiolabs-drupal": "git+https://github.com/OsioLabs/gatsby-theme-osiolabs-drupal.git",
     "react-html-parser": "^2.0.2"
   },
