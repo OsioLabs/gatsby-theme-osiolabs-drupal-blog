@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-osiolabs-drupal-blog",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
     "semantic-ui-react": "^0.88.1"
   },
   "dependencies": {
-    "gatsby-theme-osiolabs-drupal": "git+https://github.com/OsioLabs/gatsby-theme-osiolabs-drupal.git"
+    "gatsby-theme-osiolabs-drupal": "git+https://github.com/OsioLabs/gatsby-theme-osiolabs-drupal.git",
+    "react-html-parser": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",

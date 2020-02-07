@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import { Container, Header, Item } from "semantic-ui-react";
+import PropTypes from 'prop-types';
+import { Container, Header, Item } from 'semantic-ui-react';
 import Img from 'gatsby-image';
-import BlogPostTeaser from "./BlogPostTeaser";
+import ReactHtmlParser from 'react-html-parser';
+import BlogPostTeaser from './BlogPostTeaser';
 
 const BlogPostTemplate = props => {
   const {
@@ -10,28 +11,51 @@ const BlogPostTemplate = props => {
     created,
     author,
     body,
+    bodyImages,
     images,
     timeToComplete,
     previousPost,
     nextPost,
   } = props;
 
+  let postBody = <div dangerouslySetInnerHTML={{ __html: body }} />
+  if (bodyImages) {
+    postBody = new ReactHtmlParser(body, {
+      transform: function transform(node) {
+        if (
+          node.type === 'tag' &&
+          node.name === 'article' &&
+          node.attribs['data-media-source'] === 'image'
+        ) {
+          const imageData = bodyImages.find(
+            el =>
+              el.drupal_internal__fid ===
+              parseInt(node.attribs['data-media-source-value'])
+          )
+          if (imageData) {
+            return <Img fluid={imageData.localFile.childImageSharp.fluid} />
+          }
+        }
+      },
+    })
+  }
+
   return (
     <>
       <Container as="article" className="blog-post">
         {images[0] && (
           <Img
-            fluid={images[0].relationships.imageFile.localFile.childImageSharp.fluid}
+            fluid={
+              images[0].relationships.imageFile.localFile.childImageSharp.fluid
+            }
           />
         )}
         <Header as="h2">{title}</Header>
         <div className="meta">
           By {author} on {created}
-          {timeToComplete && (
-            <> // {timeToComplete} min to read</>
-          )}
+          {timeToComplete && <> // {timeToComplete} min to read</>}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: body }} />
+        {postBody}
       </Container>
       <Item.Group className="blog-navigation">
         {previousPost && (
@@ -59,6 +83,7 @@ BlogPostTemplate.propTypes = {
   created: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   images: PropTypes.array,
+  bodyImages: PropTypes.array,
   timeToComplete: PropTypes.number,
   previousPost: PropTypes.oneOfType([
     PropTypes.bool,
@@ -80,6 +105,7 @@ BlogPostTemplate.defaultProps = {
   previousPost: false,
   nextPost: false,
   images: [],
+  bodyImages: null,
 };
 
 export default BlogPostTemplate;
