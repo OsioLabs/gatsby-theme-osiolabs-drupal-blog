@@ -16,13 +16,13 @@ const BlogPostTemplateWithData = props => {
 
   // Look for any images in the body of the blog post that were added using
   // Drupal entity embeds. They'll look something like this:
-  // <article data-media-source-value="42">...</article>
+  // <article data-media-source-value=\"42">...</article>
   // Where the ID is the Drupal ID of the image file entity.
   //
   // Note: This doesn't work with Drupal out of the box and requires some code
   // on the Drupal side to add the `data-media-source-value` attribute used
   // here.
-  const re = /data-media-source-value="(\d+)"/gm;
+  const re = /data-media-source-value=\"(\d+)"/gm;
   let imageIds = [];
   let match;
   while ((match = re.exec(props.data.post.body.processed)) != null) {
